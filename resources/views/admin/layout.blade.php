@@ -10,9 +10,14 @@
 </head>
 <body>
   
-  <h1>
-  @yield('headline')
-  </h1>
+  <nav>
+    <a href="{{action('ClientController@search')}}">Search Client</a>
+    <a href="{{action('AnimalController@search')}}">Search Animal</a>
+    <a href="{{action('ClientController@index')}}">All Clients</a>
+    <a href="{{action('AnimalController@index')}}">All Animals</a>
+    <a href="{{action('ClientController@create')}}">New Client</a>
+    {{-- <a href="{{action('AnimalController@create')}}">New Animal</a> --}}
+  </nav>
 
   @yield('content')
 </body>

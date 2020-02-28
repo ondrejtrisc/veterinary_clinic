@@ -17,7 +17,6 @@ class ClientController extends Controller
     public function index2(Request $request)
     {
         $clients = Client::where('surname', 'like', '%' . $request->input('surname') . '%')->orderBy('first_name', 'asc')->get();
-
         return view('admin/client/index', compact('clients'));
     }
 
