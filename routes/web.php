@@ -19,7 +19,12 @@ Route::get('/', 'ClientController@search');
 Route::get('/animals/search', 'AnimalController@search');
 Route::post('/animals', 'AnimalController@index2');
 Route::get('/clients', 'ClientController@index');
+Route::get('/clients/create', 'ClientController@create');
 Route::post('/clients', 'ClientController@index2');
+Route::post('/storeclient', 'ClientController@store');
+
 Route::get('/clients/{id}', 'ClientController@show');
 Route::get('/animals/{id}', 'AnimalController@show');
 Route::get('/animals', 'AnimalController@index');
+Route::get('/clients/{id}/edit', 'ClientController@edit');
+Route::put('/clients/{id}', 'ClientController@update');        // put method can't be executed in browser
