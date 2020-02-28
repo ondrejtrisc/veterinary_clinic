@@ -3,14 +3,14 @@
 ])
 
 @section('content')
-  <img src="/images/{{$animal->photo}}">
+  <img src="/images/{{$animal->photo}}"><br>
   Name: {{$animal->name}}<br>
   Species: {{$animal->species}}<br>
   Breed: {{$animal->breed}}<br>
   Age: {{$animal->age}}<br>
   Weight: {{$animal->weight}}<br>
   <hr>
-  Owner: {{$animal->client->surname}} {{$animal->client->first_name}}<br>
+  Owner: <a href="{{action('ClientController@show', ['id' => $animal->client->id])}}">{{$animal->client->first_name}} {{$animal->client->surname}}</a><br>
   Address: {{$animal->client->address}}<br>
   E-mail: {{$animal->client->email}}<br>
   Telephone number: {{$animal->client->phone}}<br>

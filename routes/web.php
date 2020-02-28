@@ -11,9 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
+Route::get('/', 'ClientController@search');
 Route::get('/clients', 'ClientController@index');
+Route::post('/clients', 'ClientController@index2');
+Route::get('/clients/{id}', 'ClientController@show');
 Route::get('/animals/{id}', 'AnimalController@show');
