@@ -46,7 +46,14 @@
       @endif --}}
       <input type="text" name="name" value="{{ old('name', $animal->name) }}">
       <label for="">Client:</label>
-      <input type="text" name="client_id" value="{{ old('client_id', $animal->client_id) }}">
+
+      <select name="client_id">
+          @foreach ($clients as $client)
+              <option value="{{ $client->id }}" {{ $client->id == old('client_id', $animal->client_id) ? ' selected' : ''}}>
+                  {{ $client->name }}
+              </option>
+          @endforeach
+      </select>
       <label for="">Species:</label>
       <input type="text" name="species" value="{{ old('species', $animal->species) }}">
       <label for="">Breed:</label>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Animal;
+use App\Client;
 
 class AnimalController extends Controller
 {
@@ -36,13 +37,10 @@ class AnimalController extends Controller
     
     public function create()
     {
-        $animal = new Client;
-        $animal->first_name = '';
-        $animal->surname = '';
-        $animal->address = '';
-        $animal->email = '';
-        $animal->phone = '';
-        return view('admin.animal.edit', compact('animal'));
+        $clients = Client::all();
+        $animal = new Animal;
+
+        return view('admin.animal.edit', compact('animal', 'clients'));
     }
 
     public function store(Request $request)
@@ -50,22 +48,24 @@ class AnimalController extends Controller
         $this->validate($request, [
             'name' => 'required'
         ]);
-        $client = new Client;
-        $client->name = $request->input('first_name');
-        $client->client_id = $request->input('surname');
-        $client->address = $request->input('address');
-        $client->email = $request->input('email');
-        $client->phone = $request->input('phone');
-        $client->save();
+        $animal = new Animal;
+        $animal->name = $request->input('name');
+        $animal->client_id = $request->input('client_id');
+        $animal->species_id = $request->input('species_id');
+        $animal->breed_id = $request->input('breed_id');
+        $animal->age = $request->input('age');
+        $animal->weight = $request->input('weight');
+        $animal->photo = $request->input('photo');
+        $animal->save();
         session()->flash('success_message', 'Success!');
 
-        return redirect('clients/'.$client->id.'/edit');
+        return redirect('animals/'.$animal->id.'/edit');
     }
 
     public function edit($id)
     {
-        $client = Client::findOrFail($id);
-        return view('admin.client.edit', compact('client'));
+        $animal = Client::findOrFail($id);
+        return view('admin.animal.edit', compact('animal'));
     }
 
     public function update(Request $request, $id)
@@ -73,21 +73,23 @@ class AnimalController extends Controller
         $this->validate($request, [
             'name' => 'required'
         ]);
-        $client = Client::findOrFail($id);
-        $client->first_name = $request->input('first_name');
-        $client->surname = $request->input('surname');
-        $client->address = $request->input('address');
-        $client->email = $request->input('email');
-        $client->phone = $request->input('phone');
-        $client->save();
+        $animal->name = $request->input('name');
+        $animal->client_id = $request->input('client_id');
+        $animal->species_id = $request->input('species_id');
+        $animal->breed_id = $request->input('breed_id');
+        $animal->age = $request->input('age');
+        $animal->weight = $request->input('weight');
+        $animal->photo = $request->input('photo');
+        $animal->save();
         session()->flash('success_message', 'Success!');
-        return redirect('clients/'.$client->id.'/edit');
+        return redirect('animals/'.$animal->id.'/edit');
     }
+
     public function delete($id)
     {
-        $client = Client::findOrFail($id);
-        $client->delete();
-        return view('admin.client.index');
+        $animal = Animal::findOrFail($id);
+        $animal->delete();
+        return view('admin.animal.index');
     }
 
 }
