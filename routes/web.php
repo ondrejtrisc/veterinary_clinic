@@ -16,7 +16,10 @@
 // });
 
 Route::get('/', 'ClientController@search');
+Route::get('/animals/search', 'AnimalController@search');
+Route::post('/animals', 'AnimalController@index2');
 Route::get('/clients', 'ClientController@index');
 Route::post('/clients', 'ClientController@index2');
 Route::get('/clients/{id}', 'ClientController@show');
 Route::get('/animals/{id}', 'AnimalController@show');
+Route::get('/animals', 'AnimalController@index');
