@@ -84,4 +84,10 @@ class ClientController extends Controller
         session()->flash('success_message', 'Success!');
         return redirect('clients/'.$client->id.'/edit');
     }
+    public function delete($id)
+    {
+        $client = Client::findOrFail($id);
+        $client->delete();
+        return view('admin.client.index');
+    }
 }

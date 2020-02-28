@@ -28,3 +28,4 @@ Route::get('/animals/{id}', 'AnimalController@show');
 Route::get('/animals', 'AnimalController@index');
 Route::get('/clients/{id}/edit', 'ClientController@edit');
 Route::put('/clients/{id}', 'ClientController@update');        // put method can't be executed in browser
+Route::delete('/clients/{id}', 'ClientController@delete');        

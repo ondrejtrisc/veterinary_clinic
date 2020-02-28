@@ -9,6 +9,7 @@
   E-mail: {{$client->email}}<br>
   Telephone number: {{$client->phone}}<br>
   <a href="{{action('ClientController@edit', ['id' => $client->id])}}">Edit</a><br>
+  <a href="{{action('ClientController@delete', ['id' => $client->id])}}">Delete</a><br>
   <hr>
 
   @foreach ($client->animals as $animal)

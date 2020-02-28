@@ -19,6 +19,7 @@
                   <td>{{ $client->first_name }}</td>
                   <td><a href="{{action('AnimalController@show', ['id' => $animal->id])}}">{{ $animal->name }}</a></td>
                   <td><a href="{{action('ClientController@edit', ['id' => $client->id])}}">Edit</a></td>
+                  <td><a href="{{action('ClientController@delete', ['id' => $client->id])}}">Delete</a></td>
                 </tr>
               @endforeach
             @endforeach
