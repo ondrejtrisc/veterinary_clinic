@@ -1,12 +1,12 @@
 @extends('admin/layout', [
-    'title' => '{{$animal->name}} | {{$animal->client->surname}}}'
+    'title' => 'Animal'
 ])
 
 @section('content')
   <img src="/images/{{$animal->photo}}"><br>
   Name: {{$animal->name}}<br>
   Species: {{$animal->species}}<br>
-  Breed: {{$animal->breed}}<br>
+  Breed: {{$animal->breed->name}}<br>
   Age: {{$animal->age}}<br>
   Weight: {{$animal->weight}}<br>
   <hr>

@@ -9,16 +9,16 @@ use App\Breed;
 class Animal extends Model
 {
     public function client(){
-        $this->belongsTo(Client::class);
+        return $this->belongsTo(Client::class);
     }
 
     public function breed(){
-        $this->belongsTo(Breed::class);
+        return $this->belongsTo(Breed::class);
 
     }
 
     public function species(){
 
-        $this->belongsTo(Species::class, 'cpecies_id');
+        return $this->belongsTo(Species::class, 'cpecies_id');
     }
 }

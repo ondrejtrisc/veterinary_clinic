@@ -3,11 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Animals;
+use App\Animal;
 
 class Client extends Model
 {
     public function animals(){
-        $this->hasMany(Animals::class);
+        return $this->hasMany(Animal::class);
     }
 }

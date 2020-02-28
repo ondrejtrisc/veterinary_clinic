@@ -1,5 +1,5 @@
 @extends('admin/layout', [
-    'title' => '{{$client->first_name}} {{$client->surname}}}'
+    'title' => 'Client'
 ])
 
 @section('content')
